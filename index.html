@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오늘의 할일 | Todo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="header-top">
+        <h1 class="logo">오늘의 할일</h1>
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="테마 변경">
+          <svg class="icon-sun" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="icon-moon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+      <p class="date-display" id="dateDisplay"></p>
+    </header>
+
+    <main class="main">
+      <form class="add-form" id="addForm">
+        <input 
+          type="text" 
+          class="task-input" 
+          id="taskInput" 
+          placeholder="새 할일을 입력하세요..."
+          autocomplete="off"
+          maxlength="100"
+        >
+        <button type="submit" class="add-btn" id="addBtn" aria-label="추가">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+        </button>
+      </form>
+
+      <div class="filters">
+        <button type="button" class="filter-btn active" data-filter="all">전체</button>
+        <button type="button" class="filter-btn" data-filter="active">진행중</button>
+        <button type="button" class="filter-btn" data-filter="completed">완료</button>
+      </div>
+
+      <ul class="task-list" id="taskList"></ul>
+
+      <div class="stats" id="stats">
+        <span class="stat-item">남은 할일: <strong id="remainingCount">0</strong>개</span>
+        <button type="button" class="clear-completed" id="clearCompleted">완료 항목 지우기</button>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>데이터는 브라우저에 저장됩니다</p>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
